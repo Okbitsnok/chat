@@ -1,15 +1,12 @@
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 
-const ShowAnimation = keyframes`
-    0% {
-      transform: rotateZ(0deg);
-    }
-  100% {
-    transform: rotateZ(360deg);
-  }
-`;
+interface ContentProps {
+    isOpen: boolean;
+}
 
-export const Container = styled.div`
+export const Container = styled.div``;
+
+export const DarkContainer = styled.div`
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -19,9 +16,8 @@ export const Container = styled.div`
   left: 0;
   opacity: 1;
   pointer-events: all;
-  transition-duration: 0.1s;
-`;
 
+`;
 
 export const ChatWrapper = styled.div`
   background-color: #fff;
@@ -30,7 +26,10 @@ export const ChatWrapper = styled.div`
   bottom: 0;
   margin-left: 10%;
   box-sizing: border-box;
-  
+  @media(max-width: 1024px){
+    width: 100%;
+    margin-left: 0;
+  }
 
 `;
 
@@ -44,7 +43,7 @@ export const ChatHeader = styled.div`
 `;
 
 export const CommentWrapper = styled.div`
-    display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 `;
@@ -53,7 +52,7 @@ export const ViewAll = styled.div`
   display: flex;
   align-items: center;
   &:hover {
-cursor: pointer;
+    cursor: pointer;
   }
 `;
 
@@ -83,16 +82,29 @@ export const ViewTitle = styled.p`
   margin-right: 6px;
 `;
 
-
 export const ContentWrapper = styled.div`
   padding-right: 5px;
 `;
 
-export const Content = styled.div`
-  max-height: 650px;
+export const Content = styled.div<ContentProps>`
+  max-height: ${({isOpen}) => isOpen ? 650 : 0  }px;
   overflow-y: scroll;
-  padding: 24px 24px 0 24px;
+  padding-right: 24px;
+  padding-left: 24px;
+  padding-top: ${({isOpen}) => isOpen ? 24 : 0  }px;
+
+  transition-duration: 0.6s;
   
+  @media (max-height: 810px){
+    max-height: ${({isOpen}) => isOpen ? 500 : 0  }px;
+  }
+  @media (max-height: 700px){
+    max-height: ${({isOpen}) => isOpen ? 350 : 0  }px;
+  }
+  @media (max-height: 510px){
+    max-height: ${({isOpen}) => isOpen ? 300 : 0  }px;
+  }
+
   ::-webkit-scrollbar {
     width: 6px;
   }
@@ -103,11 +115,11 @@ export const Content = styled.div`
     width: 6px;
     box-shadow: inset 1px 1px 10px #f3faf7;
   }
-  
 `;
 
 export const InputContainer = styled.div`
   padding: 0 24px 24px 24px;
+
   &:before {
     background: linear-gradient(180deg,hsla(0,0%,100%,.2),#fff);
     bottom: 70px;
@@ -128,6 +140,7 @@ export const InputWrapper = styled.div`
 
   width: 100%;
   align-items: center;
+
 
   > svg {
     position: absolute;
@@ -164,6 +177,7 @@ export const MainInput = styled.input`
   font-weight: 400;
   height: 48px;
   width: 100%;
+  
 
   &:focus {
     outline: none;
@@ -201,8 +215,17 @@ export const InputAvatarContainer = styled.div`
 `;
 
 export const CommentCard = styled.div`
-    margin-bottom: 32px;
+  margin-bottom: 32px;
   padding-right: 76px;
+  @media(max-width: 1440px){
+    padding-right: 30px;
+  }
+  @media(max-width: 768px){
+    padding-right: 20px;
+  }
+  @media(max-width: 425px){
+    padding-right: 0;
+  }
 `;
 
 export const CommentCardHeader = styled.div`
@@ -218,7 +241,7 @@ export const CommentAvatarContainer = styled.div`
   border-radius: 50%;
   overflow: hidden;
   margin-right: 16px;
-  
+
   > img {
     height: 100%;
     width: 120%;

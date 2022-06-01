@@ -1,4 +1,4 @@
-import React, {FC, MouseEventHandler} from 'react';
+import React, {FC, MouseEventHandler, ReactElement} from 'react';
 import {ButtonStyled} from './Button.styles';
 
 export type ButtonProps = {
@@ -13,6 +13,7 @@ export type ButtonProps = {
   type: 'button' | 'submit' | 'reset';
   contrast: boolean;
   fullWidth: boolean;
+  children?: ReactElement
 };
 
 export const Button: FC<Partial<ButtonProps>> = (props) => {

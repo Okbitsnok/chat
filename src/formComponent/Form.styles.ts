@@ -6,7 +6,7 @@ export const FormContainer = styled.div`
   height: 686px;
 `
 
-export const TitleForm = styled.div`
+export const FormInfo = styled.div`
   margin-left: 32px;
   font-family: 'Nunito Sans',sans-serif;
   font-style: normal;
@@ -14,16 +14,6 @@ export const TitleForm = styled.div`
   font-size: 18px;
   line-height: 24px;
   color: #333333;
-`
-
-export const SubmitContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 1368px;
-  height: 80px;
-  background: white;
-  margin-top: 100px;
-  border-radius: 0 0 8px 8px;
 `
 
 export const Buttons = styled.div`
@@ -52,7 +42,7 @@ export const FormUse = styled.form`
   
 `
 
-export const Message = styled.div`
+export const ErrorBlock = styled.div`
   margin-left: 24px;
   
   svg {

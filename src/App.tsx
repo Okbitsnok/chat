@@ -1,6 +1,6 @@
 import React from 'react';
 import Chat from "./chat-component";
-import Form from "./form-component";
+import Form from "./formComponent";
 
 function App() {
   return (

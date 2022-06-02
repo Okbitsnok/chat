@@ -5,39 +5,37 @@ import {
     CommentTime,
     UserInfoWrapper,
     UserName,
-    CommentCard,
+    CommentsCard,
 } from "chat-component/Chat.styles";
 
 interface DataProps {
-    data: {
         src: string;
         userName: string;
         date: string;
         commentText: string;
-    }
 }
 
-const CommentCards = ({ data }: DataProps) => {
+const CommentCard = ({src, commentText, date, userName  }: DataProps) => {
     return (
-        <CommentCard>
+        <CommentsCard>
             <CommentCardHeader>
                 <CommentAvatarContainer>
-                    <img src={data.src} alt="cat"/>
+                    <img src={src} alt="cat"/>
                 </CommentAvatarContainer>
                 <UserInfoWrapper>
                     <UserName>
-                        {data.userName}
+                        {userName}
                     </UserName>
                     <CommentTime>
-                        {data.date}
+                        {date}
                     </CommentTime>
                 </UserInfoWrapper>
             </CommentCardHeader>
             <CommentText>
-                {data.commentText}
+                {commentText}
             </CommentText>
-        </CommentCard>
+        </CommentsCard>
     );
 };
 
-export default CommentCards;
+export default CommentCard;

@@ -10,11 +10,10 @@ import {
     Content,
     Container,
     ContentWrapper,
-    DarkContainer,} from "./Chat.styles";
-import CloseArrowIcon from "Icon/CloseArrowIcon";
-import OpenArrowIcon from "Icon/OpenArrowIcon";
-import CommentCard from "../components/CommentCard";
-import Input from "../components/Input";
+    BackgroundContainer,} from "./Chat.styles";
+import {ChevronIcon} from "Icon/ChevronIcon";
+import Input from "components/Input/Input";
+import CommentCard from "components/CommentCard/CommentCard";
 
 const Chat = () => {
 
@@ -89,7 +88,7 @@ const Chat = () => {
 
     return (
         <Container>
-            {isOpen && <DarkContainer/>}
+            {isOpen && <BackgroundContainer/>}
             <ChatWrapper>
                 <ChatHeader>
                     <CommentWrapper>
@@ -101,26 +100,16 @@ const Chat = () => {
                         </CommentCount>
                     </CommentWrapper>
                     <ViewAll onClick={() => {setIsOpen(!isOpen)}}>
-                        {isOpen ?
-                            <>
-                                <ViewTitle>
-                                    Скрыть
-                                </ViewTitle>
-                                <CloseArrowIcon/>
-                            </> :
-                            <>
-                                <ViewTitle>
-                                    Показать
-                                </ViewTitle>
-                                <OpenArrowIcon/>
-                            </>
-                        }
+                        <ViewTitle>
+                           {isOpen ? "скрыть" : "показать"}
+                           </ViewTitle>
+                           <ChevronIcon isOpen={isOpen}/>
                     </ViewAll>
                 </ChatHeader>
                     <ContentWrapper >
                         <Content isOpen={isOpen}>
                             {CommentData.map((item) => (
-                                <CommentCard data={item}/>
+                                <CommentCard src={item.src} userName={item.userName} date={item.date} commentText={item.commentText}/>
                             ))}
 
                         </Content>

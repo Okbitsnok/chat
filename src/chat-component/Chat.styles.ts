@@ -6,7 +6,7 @@ interface ContentProps {
 
 export const Container = styled.div``;
 
-export const DarkContainer = styled.div`
+export const BackgroundContainer = styled.div`
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -69,7 +69,7 @@ export const CommentCount = styled.p`
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  color: #FF6600;
+  color: var(--primary-color);
   margin-left: 16px;
 `;
 
@@ -78,7 +78,7 @@ export const ViewTitle = styled.p`
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
-  color: #FF6600;
+  color: var(--primary-color);
   margin-right: 6px;
 `;
 
@@ -95,6 +95,12 @@ export const Content = styled.div<ContentProps>`
 
   transition-duration: 0.6s;
   
+  @media (max-height: 1000px){
+    max-height: ${({isOpen}) => isOpen ? 700 : 0  }px;
+  }
+  @media (max-height: 950px){
+    max-height: ${({isOpen}) => isOpen ? 650 : 0  }px;
+  }
   @media (max-height: 810px){
     max-height: ${({isOpen}) => isOpen ? 500 : 0  }px;
   }
@@ -214,7 +220,7 @@ export const InputAvatarContainer = styled.div`
   }
 `;
 
-export const CommentCard = styled.div`
+export const CommentsCard = styled.div`
   margin-bottom: 32px;
   padding-right: 76px;
   @media(max-width: 1440px){

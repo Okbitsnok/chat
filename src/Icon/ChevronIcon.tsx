@@ -1,8 +1,13 @@
 import {SvgStyled} from './Icons.styles';
 
-export const ChevronIcon = () => {
+interface IconProps {
+    isOpen: boolean
+}
+
+export const ChevronIcon = ({isOpen}: IconProps) => {
   return (
     <SvgStyled
+        topdown={isOpen}
       width="12"
       height="7"
       viewBox="0 0 12 7"

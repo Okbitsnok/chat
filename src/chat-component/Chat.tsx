@@ -101,7 +101,7 @@ const Chat = () => {
                     </CommentWrapper>
                     <ViewAll onClick={() => {setIsOpen(!isOpen)}}>
                         <ViewTitle>
-                           {isOpen ? "скрыть" : "показать"}
+                           {isOpen ? "Скрыть" : "Показать"}
                            </ViewTitle>
                            <ChevronIcon isOpen={isOpen}/>
                     </ViewAll>

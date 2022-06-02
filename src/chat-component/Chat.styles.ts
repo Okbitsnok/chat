@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-interface ContentProps {
-    isOpen: boolean;
-}
-
 export const Container = styled.div``;
 
 export const BackgroundContainer = styled.div`
@@ -21,10 +17,10 @@ export const BackgroundContainer = styled.div`
 
 export const ChatWrapper = styled.div`
   background-color: #fff;
-  width: 70%;
+  width: 71%;
   position: fixed;
   bottom: 0;
-  margin-left: 10%;
+  margin-left: 80px;
   box-sizing: border-box;
   @media(max-width: 1024px){
     width: 100%;
@@ -38,6 +34,7 @@ export const ChatHeader = styled.div`
   box-sizing: border-box;
   background-color: #fff;
   border: 1px solid #E5F1FF;
+  border-top: 2px solid #E5F1FF;
   padding: 16px 24px;
   justify-content: space-between;
 `;
@@ -48,15 +45,17 @@ export const CommentWrapper = styled.div`
   justify-content: center;
 `;
 
-export const ViewAll = styled.div`
+export const ViewAll = styled.button`
   display: flex;
   align-items: center;
-  &:hover {
-    cursor: pointer;
-  }
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  background: none;
 `;
 
-export const CommentTitle = styled.p`
+export const CommentTitle = styled.span`
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -73,25 +72,29 @@ export const CommentCount = styled.p`
   margin-left: 16px;
 `;
 
-export const ViewTitle = styled.p`
+export const ViewTitle = styled.span`
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
   color: var(--primary-color);
-  margin-right: 6px;
+  margin-right: 8px;
+  
 `;
 
 export const ContentWrapper = styled.div`
   padding-right: 5px;
 `;
 
+interface ContentProps {
+    isOpen: boolean;
+}
+
 export const Content = styled.div<ContentProps>`
   max-height: ${({isOpen}) => isOpen ? 650 : 0  }px;
   overflow-y: scroll;
-  padding-right: 24px;
-  padding-left: 24px;
-  padding-top: ${({isOpen}) => isOpen ? 24 : 0  }px;
+
+  padding: ${({isOpen}) => isOpen ? 24 : 0  }px 24px 0 24px;
 
   transition-duration: 0.6s;
   
@@ -269,7 +272,7 @@ export const UserName = styled.p`
   padding-bottom: 3px;
 `;
 
-export const CommentTime = styled.p`
+export const CommentTime = styled.time`
   font-style: normal;
   font-weight: 600;
   font-size: 12px;

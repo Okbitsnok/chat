@@ -12,7 +12,7 @@ import {Button} from "../components/Button/Button";
 import FormFooter from "./footer/Footer";
 
 interface FormFields {
-    field: string;
+    field: string | null;
 }
 
 const Form = () => {
@@ -41,7 +41,7 @@ const Form = () => {
                     required: true
                 })}/>
 
-                <FormFooter hasError={errors.field != null}>
+                <FormFooter hasErrors={errors.field != null}>
                     <Buttons>
                         <Cancel>
                             <Button title="Отменить"/>

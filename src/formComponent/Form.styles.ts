@@ -41,21 +41,3 @@ export const CreateCall = styled.div`
 export const FormUse = styled.form`
   
 `
-
-export const ErrorBlock = styled.div`
-  margin-left: 24px;
-  
-  svg {
-    width: 12px;
-    height: 12px;
-    margin-right: 16px;
-  }
-  
-  span {
-    font-family: 'Nunito Sans', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    color: #333333;
-  }
-`

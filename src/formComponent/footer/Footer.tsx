@@ -1,39 +1,48 @@
-import {ErrorBlock} from "../Form.styles";
 import {InCorrectMark} from "../../Icon/InCorrectMark";
 import {CorrectMark} from "../../Icon/CorrectMark";
 import React, {ReactElement} from "react";
-import {Content, Wrapper} from "./Footer.styles";
+import {Content, ValidateMessageContainer, Wrapper} from "./Footer.styles";
 
 interface Props {
-    hasError?: boolean
+    hasErrors?: boolean | null
     children: ReactElement
 }
 
 export default function FormFooter(props: Props) {
 
     const {
-        hasError,
+        hasErrors = null,
         children
     } = props;
 
+    if (props.hasErrors != null && hasErrors) {
+        return (
+            <Wrapper>
+                <ValidateMessageContainer>
+                    <InCorrectMark/>
+                    <span>Поля заполнены некорректно</span>
+                </ValidateMessageContainer>
+
+                <Content> {children} </Content>
+
+            </Wrapper>
+        )
+    } else if (props.hasErrors != null && !hasErrors) {
+        return (
+            <Wrapper>
+                <ValidateMessageContainer>
+                    <CorrectMark/>
+                    <span>Все поля заполнены корректно</span>
+                </ValidateMessageContainer>
+                <Content> {children} </Content>
+
+            </Wrapper>
+        )
+    }
+
     return (
         <Wrapper>
-            <div>
-                {props.hasError != null && hasError ?
-                    <ErrorBlock>
-                        <InCorrectMark/>
-                        <span>Поля заполнены некорректно</span>
-                    </ErrorBlock>
-                    :
-                    <ErrorBlock>
-                        <CorrectMark/>
-                        <span>Все поля заполнены корректно</span>
-                    </ErrorBlock>
-                }
-            </div>
-
             <Content> {children} </Content>
-
         </Wrapper>
-    )
+    );
 }

@@ -13,3 +13,21 @@ export const Content = styled.div`
   margin-right: 0;
   margin-left: auto;
 `
+
+export const ValidateMessageContainer = styled.div`
+  margin-left: 24px;
+  
+  svg {
+    width: 12px;
+    height: 12px;
+    margin-right: 16px;
+  }
+  
+  span {
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+  }
+`

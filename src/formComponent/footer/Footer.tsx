@@ -1,7 +1,7 @@
 import {InCorrectMark} from "../../Icon/InCorrectMark";
 import {CorrectMark} from "../../Icon/CorrectMark";
 import React, {ReactElement} from "react";
-import {Content, ValidateMessage, Wrapper} from "./Footer.styles";
+import {Content, ValidateMessage, Footer} from "./Footer.styles";
 
 interface Props {
     hasErrors?: boolean
@@ -16,7 +16,7 @@ export default function FormFooter(props: Props) {
     } = props;
 
     return (
-        <Wrapper>
+        <Footer>
             {hasErrors != null && (
                 <ValidateMessage>
                     {hasErrors ?
@@ -34,6 +34,6 @@ export default function FormFooter(props: Props) {
             )}
 
             <Content>{children}</Content>
-        </Wrapper>
+        </Footer>
     )
 }

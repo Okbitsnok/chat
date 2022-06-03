@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Footer = styled.footer`
   display: flex;
   align-items: center;
   padding: 16px;

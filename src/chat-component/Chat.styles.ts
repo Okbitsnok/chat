@@ -16,7 +16,7 @@ export const BackgroundContainer = styled.div`
 `;
 
 export const ChatWrapper = styled.div`
-  background-color: #fff;
+  background-color: var(--additional-color-contrast);
   width: 71%;
   position: fixed;
   bottom: 0;
@@ -32,9 +32,9 @@ export const ChatWrapper = styled.div`
 export const ChatHeader = styled.div`
   display: flex;
   box-sizing: border-box;
-  background-color: #fff;
-  border: 1px solid #E5F1FF;
-  border-top: 2px solid #E5F1FF;
+  background-color: var(--additional-color-contrast);
+  border: 1px solid var(--scecondary-additional-color);
+  border-top: 2px solid var(--scecondary-additional-color);
   padding: 16px 24px;
   justify-content: space-between;
 `;
@@ -53,6 +53,18 @@ export const ViewAll = styled.button`
   cursor: pointer;
   outline: none;
   background: none;
+`;
+
+interface ChevronProps {
+    topdown: boolean
+}
+
+export const ChevronWrapper = styled.div<ChevronProps>`
+  transform: rotate( ${({topdown}) => topdown ? 0 : 180 }deg);
+  
+  > svg path {
+    fill: var(--primary-color);
+  }
 `;
 
 export const CommentTitle = styled.span`
@@ -118,7 +130,7 @@ export const Content = styled.div<ContentProps>`
     width: 6px;
   }
   ::-webkit-scrollbar-thumb {
-    background: #E7E7E7;
+    background: var(--primary-border-color);
     opacity: 0.5;
     border-radius: 150px;
     width: 6px;
@@ -126,164 +138,3 @@ export const Content = styled.div<ContentProps>`
   }
 `;
 
-export const InputContainer = styled.div`
-  padding: 0 24px 24px 24px;
-
-  &:before {
-    background: linear-gradient(180deg,hsla(0,0%,100%,.2),#fff);
-    bottom: 70px;
-    content: "";
-    height: 34px;
-    left: 0;
-    position: absolute;
-    width: 100%;
-  }
-`;
-
-export const InputWrapper = styled.div`
-  position: relative;
-  display: flex;
-
-  box-sizing: border-box;
-  border-radius: 8px;
-
-  width: 100%;
-  align-items: center;
-
-
-  > svg {
-    position: absolute;
-    cursor: pointer;
-  }
-
-  &:hover {
-    box-shadow: 0 2px 7px rgba(9, 6, 57, 0.2);
-  }
-`;
-
-export const SendButton = styled.button`
-  position: absolute;
-  right: 10px;
-  border: none;
-  box-shadow: none;
-  cursor: pointer;
-  outline: none;
-  background: none;
-`;
-
-export const MainInput = styled.input`
-  display: flex;
-  align-items: center;
-  padding: 0 50px;
-  background: #E5F1FF;
-  border-radius: 8px;
-  font-style: normal;
-  line-height: 22px;
-  color: #333333;
-  box-sizing: border-box;
-  border: none;
-  font-size: 16px;
-  font-weight: 400;
-  height: 48px;
-  width: 100%;
-  
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 2px 7px rgba(9, 6, 57, 0.2);
-
-  }
-
-  &:disabled {
-    cursor: default;
-    color: rgba(13, 13, 19, 0.6);
-    box-shadow: none;
-  }
-
-  &::placeholder {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    color: #7d7d7d;
-  }
-`;
-
-export const InputAvatarContainer = styled.div`
-  margin-left: 16px;
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  overflow: hidden;
-  position: absolute;
-
-  > img {
-    height: 100%;
-    width: 100%;
-  }
-`;
-
-export const CommentsCard = styled.div`
-  margin-bottom: 32px;
-  padding-right: 76px;
-  @media(max-width: 1440px){
-    padding-right: 30px;
-  }
-  @media(max-width: 768px){
-    padding-right: 20px;
-  }
-  @media(max-width: 425px){
-    padding-right: 0;
-  }
-`;
-
-export const CommentCardHeader = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-`;
-
-export const CommentAvatarContainer = styled.div`
-  position: relative;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 16px;
-
-  > img {
-    height: 100%;
-    width: 120%;
-  }
-`;
-
-export const UserInfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-export const UserName = styled.p`
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  color: #376092;
-  padding-bottom: 3px;
-`;
-
-export const CommentTime = styled.time`
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  color: #7D7D7D;
-`;
-
-export const CommentText = styled.p`
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  color: #333333;
-`;

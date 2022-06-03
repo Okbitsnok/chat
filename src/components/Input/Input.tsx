@@ -2,20 +2,19 @@ import React from 'react';
 
 import {
     Form,
-    InputAvatarContainer,
-    InputContainer,
-    InputWrapper,
+    AvatarContainer,
+    Container,
+    Wrapper,
     MainInput,
     SendButton,} from "components/Input/Input.styles";
 import PaperPlaneIcon from "Icon/PaperPlaneIcon";
 import {useForm} from "react-hook-form";
 
+type FormData = {
+    message: string;
+}
 
 const Input = () => {
-
-    type FormData = {
-        message: string;
-    }
 
     const {
         register,
@@ -30,11 +29,11 @@ const Input = () => {
 
     return (
         <Form onSubmit={onSubmit}>
-        <InputContainer>
-            <InputWrapper>
-                <InputAvatarContainer>
+        <Container>
+            <Wrapper>
+                <AvatarContainer>
                     <img src="https://ferret-pet.ru/wp-content/uploads/6/b/5/6b5f022448da0963245cbf3e0878dd0d.jpeg" alt="cat"/>
-                </InputAvatarContainer>
+                </AvatarContainer>
                 <MainInput
                     placeholder="Ваш комментарий..."
                     {...register("message")}
@@ -42,8 +41,8 @@ const Input = () => {
                 <SendButton>
                     <PaperPlaneIcon/>
                 </SendButton>
-            </InputWrapper>
-        </InputContainer>
+            </Wrapper>
+        </Container>
         </Form>
     );
 };

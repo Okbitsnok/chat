@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Form = styled.form``;
 
-export const InputContainer = styled.div`
+export const Container = styled.div`
   padding: 0 24px 24px 24px;
 
   &:before {
@@ -16,7 +16,7 @@ export const InputContainer = styled.div`
   }
 `;
 
-export const InputWrapper = styled.div`
+export const Wrapper = styled.div`
   position: relative;
   display: flex;
 
@@ -88,7 +88,7 @@ export const MainInput = styled.input`
   }
 `;
 
-export const InputAvatarContainer = styled.div`
+export const AvatarContainer = styled.div`
   margin-left: 16px;
   height: 18px;
   width: 18px;

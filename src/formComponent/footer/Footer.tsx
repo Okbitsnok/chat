@@ -4,14 +4,14 @@ import React, {ReactElement} from "react";
 import {Content, ValidateMessageContainer, Wrapper} from "./Footer.styles";
 
 interface Props {
-    hasErrors?: boolean | null
+    hasErrors?: boolean
     children: ReactElement
 }
 
 export default function FormFooter(props: Props) {
 
     const {
-        hasErrors = null,
+        hasErrors,
         children
     } = props;
 

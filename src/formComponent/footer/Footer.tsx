@@ -1,25 +1,25 @@
 import {ErrorBlock} from "../Form.styles";
 import {InCorrectMark} from "../../Icon/InCorrectMark";
 import {CorrectMark} from "../../Icon/CorrectMark";
-import React, {FC, ReactElement} from "react";
-import {FormFooter} from "./Footer.styles";
+import React, {ReactElement} from "react";
+import {Content, Wrapper} from "./Footer.styles";
 
-interface FormFields {
-    errorBool: boolean
+interface Props {
+    hasError?: boolean
     children: ReactElement
 }
 
-const Footer: FC<Partial<FormFields>> = (props) => {
+export default function FormFooter(props: Props) {
 
     const {
-        errorBool,
+        hasError,
         children
     } = props;
 
     return (
-        <FormFooter>
+        <Wrapper>
             <div>
-                {errorBool ?
+                {props.hasError != null && hasError ?
                     <ErrorBlock>
                         <InCorrectMark/>
                         <span>Поля заполнены некорректно</span>
@@ -31,9 +31,9 @@ const Footer: FC<Partial<FormFields>> = (props) => {
                     </ErrorBlock>
                 }
             </div>
-            {children}
-        </FormFooter>
+
+            <Content> {children} </Content>
+
+        </Wrapper>
     )
 }
-
-export default Footer;

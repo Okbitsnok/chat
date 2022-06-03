@@ -9,10 +9,10 @@ import {
     FormInfo
 } from "./Form.styles";
 import {Button} from "../components/Button/Button";
-import Footer from "./footer";
+import FormFooter from "./footer/Footer";
 
 interface FormFields {
-    field: string | boolean;
+    field: string;
 }
 
 const Form = () => {
@@ -41,7 +41,7 @@ const Form = () => {
                     required: true
                 })}/>
 
-                <Footer errorBool={!!errors.field}>
+                <FormFooter hasError={errors.field != null}>
                     <Buttons>
                         <Cancel>
                             <Button title="Отменить"/>
@@ -51,7 +51,7 @@ const Form = () => {
                             <Button type="submit" fullWidth={false} title="Создать звонок"/>
                         </CreateCall>
                     </Buttons>
-                </Footer>
+                </FormFooter>
             </FormUse>
         </FormContainer>
     )

@@ -14,7 +14,7 @@ export const Content = styled.div`
   margin-left: auto;
 `
 
-export const ValidateMessageContainer = styled.div`
+export const ValidateMessage = styled.p`
   margin-left: 24px;
   
   svg {

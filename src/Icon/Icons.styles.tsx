@@ -6,7 +6,5 @@ export type SvgProps = {
 };
 
 export const SvgStyled = styled.svg<Partial<SvgProps>>`
-  path {
-    fill: white;
-  }
+
 `;

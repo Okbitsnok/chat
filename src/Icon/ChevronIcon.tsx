@@ -1,5 +1,6 @@
 import {SvgStyled} from './Icons.styles';
 
+
 export const ChevronIcon = () => {
   return (
     <SvgStyled
